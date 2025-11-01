@@ -1,0 +1,10 @@
+{% extends "layout.html" %} 
+{% block title %}
+    Tap Detail Page || {{ tapp.name }}
+{% endblock %} 
+{% block content %}
+    <h1>{{ tapp.name }}</h1>
+    <p>Type: {{ tapp.tap_type }}</p>
+    <p>Description: {{ tapp.description }}</p>
+    <img src="{{ tapp.image.url }}" alt="{{ tapp.name }}" />
+{% endblock %}

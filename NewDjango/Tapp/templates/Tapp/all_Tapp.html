@@ -3,6 +3,23 @@
 {% block title %}All Tapp Page{% endblock %}
 
 {% block content %}
-    <h1>All Tapp Page</h1>
+    <div class="text-black">
+        <h1>All Tapp Page</h1>
     <p>This page displays all Tapp items.</p>
+    <div class= "grid grid-cols-3 gap-4 px-2">
+        {% for tapp in tapps %}
+            <div class="border p-4 text-black">
+                <h2>{{ tapp.name }} - {{ tapp.tap_type }}</h2>
+                <img src="{{ tapp.image.url }}" alt="{{ tapp.name }}" />
+                <a href="{% url 'tapp_detail' tapp.id %}">
+                    <button class="btn btn-primary bg-orange-400 hover:bg-orange-500 border-none mt-2 w-full">
+                        View Details
+                    </button>
+                </a>
+            </div>
+        {% empty %}
+            <h1>No Tapp items available.</h1>
+        {% endfor %}
+    </div>
+    </div>
 {% endblock %}
